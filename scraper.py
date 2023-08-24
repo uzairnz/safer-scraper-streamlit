@@ -20,11 +20,14 @@ def scrape_email_from_url(usdot_code):
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
 
-        email_tag = soup.find('span', {'class': 'dat'})
-
-        if email_tag:
-            return email_tag.text.strip()  # Strip any leading/trailing whitespace
+        label_tag = soup.find('label', text='Email:')
+        if label_tag:
+            email_tag = label_tag.find_next('span', {'class': 'dat'})
+            if email_tag:
+                return email_tag.text.strip()
+            else:
+                return "Email not found on the page"
         else:
-            return "Email not found on the page"
+            return "Label 'Email:' not found on the page"
     else:
         return "Unable to fetch the webpage"
