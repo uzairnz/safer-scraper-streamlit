@@ -10,13 +10,16 @@ def main():
     if st.button("Fetch and Export Data"):
         data = []
         for i in range(usdot_code_start, usdot_code_start + batch_size):
-            company_details = scrape_company_data(i)  # Pass integer i instead of str(i)
-            email = scrape_email_from_url(i)  # Pass integer i instead of str(i)
+            try:
+                company_details = scrape_company_data(i)
+                email = scrape_email_from_url(i)
+                
+                if company_details:
+                    company_details['email'] = email
+                    data.append(company_details)
+            except:  # Handle any exception, adjust this as needed
+                continue  # Skip to the next iteration
             
-            if company_details:
-                company_details['email'] = email
-                data.append(company_details)
-
         if data:
             df = pd.DataFrame(data)
             st.write("Data successfully fetched and exported to Excel:")
