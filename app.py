@@ -4,11 +4,10 @@ import json
 
 def main():
     st.title("Company Data Scraper")
-    usdot_code = st.text_input("Enter US DOT Code")
-    usdot_code_int = int(usdot_code)
+    usdot_code = int(st.number_input("Enter US DOT Code"))
     if st.button("Fetch Company Details"):
         if usdot_code:
-            company_details = scrape_company_data(usdot_code_int)
+            company_details = scrape_company_data(usdot_code)
             if company_details:
                 st.write("Company Details:")
                 st.write(f"Name: {company_details['legal_name']}")
