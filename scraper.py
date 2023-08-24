@@ -19,7 +19,9 @@ def scrape_email_from_url(usdot_code):
 
     if response.status_code == 200:
         soup = BeautifulSoup(response.content, 'html.parser')
-        email_tag = soup.find('span', {'id': 'ctl00_MainContent_lblEmail'})
+
+        # Replace this with the correct element tag and attributes
+        email_tag = soup.find('span', {'id': 'actual_email_id'})
 
         if email_tag:
             return email_tag.text
