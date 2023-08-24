@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 def scrape_company_data(usdot_code):
-    url = f"https://example.com/companies?usdot={usdot_code}"
+    url = f"https://safer.fmcsa.dot.gov/companies?usdot={usdot_code}"
     response = requests.get(url)
 
     if response.status_code == 200:
