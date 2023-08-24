@@ -4,14 +4,14 @@ from scraper import scrape_company_data, scrape_email_from_url
 
 def main():
     st.title("Company Data Scraper")
-    usdot_code_start = st.number_input("Enter Starting US DOT Code", value=0, step=1)
+    usdot_code_start = st.number_input("Enter Starting US DOT Code", value=0, step=1, format="%d")
     batch_size = 10000
     
     if st.button("Fetch and Export Data"):
         data = []
         for i in range(usdot_code_start, usdot_code_start + batch_size):
-            company_details = scrape_company_data(str(i))
-            email = scrape_email_from_url(str(i))
+            company_details = scrape_company_data(i)  # Pass integer i instead of str(i)
+            email = scrape_email_from_url(i)  # Pass integer i instead of str(i)
             
             if company_details:
                 company_details['email'] = email
@@ -31,6 +31,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 # import streamlit as st
