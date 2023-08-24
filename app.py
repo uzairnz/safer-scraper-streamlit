@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 from scraper import scrape_company_data, scrape_email_from_url
 
 
