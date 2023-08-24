@@ -7,10 +7,13 @@ from safer import CompanySnapshot
 def scrape_company_data(usdot_code):
     client = CompanySnapshot()
     company = client.get_by_usdot_number(usdot_code)
-    json_string = company.to_json()
-    company_dict = json.loads(json_string)
-
-    return company_dict
+    
+    if company is not None:  # Check if company data is found
+        json_string = company.to_json()
+        company_dict = json.loads(json_string)
+        return company_dict
+    else:
+        return "Company data not found for the given DOT code"
 
 
 def scrape_email_from_url(usdot_code):
