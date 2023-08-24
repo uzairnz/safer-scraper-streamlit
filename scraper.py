@@ -1,18 +1,11 @@
 import requests
+import json
 from bs4 import BeautifulSoup
+from safer import CompanySnapshot
 
 def scrape_company_data(usdot_code):
-    url = f"https://safer.fmcsa.dot.gov/companies?usdot={usdot_code}"
-    response = requests.get(url)
+    client = CompanySnapshot()
+    company = client.get_by_usdot_number(usdot_code)
+    company_dict = json.loads(company)
 
-    if response.status_code == 200:
-        soup = BeautifulSoup(response.content, 'html.parser')
-        # Extract and parse company details from the soup object
-        company_details = {
-            "name": soup.find("span", class_="company-name").text,
-            "address": soup.find("div", class_="company-address").text,
-            # Add more details extraction as needed
-        }
-        return company_details
-    else:
-        return None
+    return company_dict
