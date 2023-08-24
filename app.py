@@ -1,5 +1,5 @@
 import streamlit as st
-from scraper import scrape_company_data
+from scraper import scrape_company_data, scrape_email_from_url
 import json
 
 def main():
@@ -8,9 +8,11 @@ def main():
     if st.button("Fetch Company Details"):
         if usdot_code:
             company_details = scrape_company_data(usdot_code)
+            email = scrape_email_from_url(usdot_code)
             if company_details:
                 st.write("Company Details:")
                 st.write(f"Name: {company_details['legal_name']}")
+                st.write(f"Email: {email}")
                 st.write(f"Physical Address: {company_details['physical_address']}")
                 st.write(f"Mailing Address: {company_details['mailing_address']}")
                 st.write(f"Phone: {company_details['phone']}")
