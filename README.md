@@ -25,10 +25,10 @@ cd safer-scraper-streamlit
 
 4. streamlit run app.py
 
-#Usage
+Usage
 1. Enter US DOT CODE to fetch data
 
-#Acknowledgements
+Acknowledgements
 1. The safer library for providing access to the FMCSA SAFER database.
 2. Streamlit for enabling quick and interactive data visualization.
 3. BeautifulSoup for web scraping HTML content.
@@ -36,7 +36,7 @@ cd safer-scraper-streamlit
 License
 -------
 
-    Copyright 2019 Uzair Majeed
+    Copyright 2023 Uzair Majeed
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
