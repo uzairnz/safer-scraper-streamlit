@@ -15,15 +15,15 @@ You can install the required dependencies using the following command:
 pip install streamlit beautifulsoup4 pandas safer
 
 # Getting Started
-##1. Clone this repository:
+1. Clone this repository:
 git clone https://github.com/uzairnz/safer-scraper-streamlit.git
 cd safer-scraper-streamlit
 
-##2. Install the required dependencies (as mentioned above).
+2. Install the required dependencies (as mentioned above).
 
-##3.  Run the Streamlit app:
+3.  Run the Streamlit app:
 
-##4. streamlit run app.py
+4. streamlit run app.py
 
 #Usage
 1. Enter US DOT CODE to fetch data
