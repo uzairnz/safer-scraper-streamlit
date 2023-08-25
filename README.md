@@ -14,6 +14,7 @@ You can install the required dependencies using the following command:
 
 ```bash
 pip install streamlit beautifulsoup4 pandas safer
+```bash
 
 # Getting Started
 ##1. Clone this repository:
